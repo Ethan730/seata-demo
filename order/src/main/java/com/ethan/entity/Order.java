@@ -8,4 +8,5 @@ import lombok.NoArgsConstructor;
 public class Order {
     private int id;
     private int number;
+    private int status;
 }

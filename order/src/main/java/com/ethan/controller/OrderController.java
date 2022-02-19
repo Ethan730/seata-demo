@@ -21,7 +21,7 @@ public class OrderController {
 
     @RequestMapping(value = "/order/create")
     @GlobalTransactional
-    public String  create() {
+    public String create() {
         Order order = new Order();
         order.setId(2);
         order.setNumber(100);
@@ -41,10 +41,17 @@ public class OrderController {
         return "Success";
     }
 
-    @RequestMapping(value = "consumer/account/get/{id}")
+    @RequestMapping(value = "/consumer/account/get/{id}")
     public Account getAccountByFegin(@PathVariable("id") Long id) {
         Account account = accountFeignService.get(id);
         log.info("{}", account);
         return account;
+    }
+
+    @RequestMapping("/order/create/tcc")
+    @GlobalTransactional
+    public String createTcc() {
+        String result = orderService.tcc();
+        return result;
     }
 }

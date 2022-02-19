@@ -11,4 +11,10 @@ public interface OrderDao {
     public int create(Order order);
 
     public Order getOrderById(@Param("id") Long id);
+
+    public int update(Order order);
+
+    public int delete(Order order);
+
+    public int insertTcc(Order order);
 }

@@ -16,3 +16,7 @@ create table `account`(
 
 insert into `order`(id, number) values(1, 10);
 insert into `account`(id, money) values(1, 100);
+
+# tcc alter
+
+alter table `order` add column (status int(1));
