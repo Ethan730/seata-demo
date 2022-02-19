@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ethan.dao.OrderDao">
+
+    <insert id="create" parameterType="Order" useGeneratedKeys="true" keyProperty="id">
+        insert into `order`(`id`, `number`)
+        values (#{id}, #{number});
+    </insert>
+
+
+    <resultMap id="BaseResultMap" type="com.ethan.entity.Order">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <id column="number" property="number" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <select id="getOrderById" parameterType="Long" resultMap="BaseResultMap">
+        select `id`, `number`
+        from `order`
+        where id = #{id};
+    </select>
+</mapper>
